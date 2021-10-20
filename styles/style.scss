@@ -1,0 +1,306 @@
+
+   
+/* Primary Color */
+$StrongCyan: hsl(172, 67%, 45%);
+
+/* Neutral */
+$VeryDarkCyan: hsl(183, 100%, 15%);
+
+$DarkGrayishCyan:hsl(186, 14%, 43%);
+
+$DarkGrayishCyan2: hsl(184, 14%, 56%);
+
+$LigthGrayishCyan: hsl(185, 41%, 84%);
+
+$LigthGrayishCyan2: hsl(189, 41%, 97%);
+
+$White: hsl(0, 0%, 100%);
+
+
+@mixin displayFlex { 
+    display: flex;
+}
+
+@mixin height ($height) { 
+    height: $height;
+}
+
+@mixin width ($width) { 
+    width: $width;
+}
+
+@mixin maxWidth ($maxWidth) { 
+    max-width: $maxWidth;
+}
+
+@mixin maxHeight ($maxHeight) { 
+    max-height: $maxHeight;
+}
+
+@mixin fontWeight ($fontWeight) { 
+    font-weight: $fontWeight;
+}
+
+@mixin alingItems ($alingItems) { 
+    align-items: $alingItems;
+}
+
+@mixin background-color ($backgroundcolor) { 
+    background-color: $backgroundcolor;
+}
+
+@mixin padding ($padding) { 
+    padding: $padding;
+}
+
+@mixin fontSize ($fontSize) { 
+    font-size: $fontSize;
+}
+
+@mixin flexDirection ($flexDirection) { 
+    flex-direction: $flexDirection;
+}
+
+@mixin margin ($margin) { 
+    margin: $margin;
+}
+
+@mixin justifyContent ($justifyContent) { 
+    justify-content: $justifyContent;
+}
+
+@mixin borderRadius ($borderRadius) { 
+    border-radius: $borderRadius;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    @include height(100%);
+    @include margin(0);
+    @include padding(0);
+}
+
+body{
+    @include background-color($LigthGrayishCyan);
+    @include displayFlex;
+    @include justifyContent(center);
+    @include alingItems(center);
+    @include flexDirection(column);
+    font-family: 'Space Mono', monospace;
+}
+
+/* Imagen de cabecera */
+.splitter-img{
+    padding-bottom: 2rem;
+}
+
+/* Contenedor principal */
+.main-container{
+    @include displayFlex;
+    @include width(100%);
+    @include height(100%);
+    @include maxWidth(1000px);
+    @include maxHeight(500px);
+    @include background-color($White);
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+/* Seccion que envia los datos */
+.section-data{
+ flex-basis: 50%;
+ @include displayFlex;
+ @include flexDirection(column);
+ @include padding(2.5rem);
+ @include justifyContent(space-between);
+ color: hsla(178,18%,40%,1);
+ @include fontWeight(510);
+}
+
+.bill-input, .bill-number-people{
+    @include width(100%);
+    @include height(45px);
+    @include background-color(#eaf5f5);
+    border-radius: 6px;
+    border: none;
+    text-align: right;
+    @include fontSize(25px);
+    @include fontWeight(bold);
+    @include padding(1rem 10px);
+    color: #9ebbbd;
+    background-repeat: no-repeat;
+    outline: none;
+    background-position: 5%;
+    font-family: 'Space Mono', monospace;    
+    cursor: pointer;
+}
+
+.bill-input{
+    background-image: url('/Tip-calculator-app/images/icon-dollar.svg');
+       
+}
+
+.bill-number-people{
+    background-image: url('/Tip-calculator-app/images/icon-person.svg');   
+    
+}
+
+/* select tip */
+
+.tip-offer{
+    @include displayFlex;
+    @include flexDirection(column);
+    @include justifyContent(space-evenly);
+    @include width(100%);
+}    
+
+.tip-offer-1 button, .tip-offer-2 button, .input-custom {
+    @include padding(10px 1rem);
+    @include fontSize(23px);
+    @include fontWeight(750);    
+    letter-spacing: 1;
+    border: none;
+    border-radius: 5px;    
+    @include width(115px);
+    font-family: 'Space Mono', monospace;
+}
+
+
+.tip-offer-1{
+    @include displayFlex;
+    @include justifyContent(space-around);
+}
+
+.tip-offer-2{
+    padding-top: 1rem;
+    @include displayFlex;
+    @include justifyContent(space-around);
+    
+}
+
+.btn-offer{
+    @include background-color($VeryDarkCyan);
+    color: white;    
+    cursor: pointer;
+}
+
+.input-custom{
+    @include background-color(#eaf5f5);
+    color: rgb(90, 131, 129);    
+    cursor: pointer;
+    text-align: right;
+}
+
+/* Seccion que muestra los resultados */
+.section-result{
+    flex-basis: 50%;
+    @include displayFlex;
+    @include justifyContent(center);
+    @include alingItems(center);
+    @include width(400px);   
+}
+
+
+.result-container{
+    @include padding(2rem 1.5rem);
+    @include displayFlex;
+    @include flexDirection(column);
+    @include justifyContent(space-between);
+     @include background-color($VeryDarkCyan); 
+    @include width(85%);
+    @include height(85%);
+    border-radius: 12px;  
+    position: relative; 
+    
+}
+
+.result-container__inputs{
+    @include displayFlex;
+    @include flexDirection(row);
+    @include height(100%);
+    @include width(100%);
+    padding-left: 1rem;
+   }
+
+   .result-container__inputs-p{
+    @include displayFlex;
+    @include flexDirection(column);
+    color: $White;
+
+   }
+
+   .result-container__inputs-text{
+     @include displayFlex;  
+     @include flexDirection(column);
+     position: relative;
+     margin-top: 3px;
+     @include maxWidth(169px);
+}
+
+.tip-amount-p{
+ @include maxWidth(65%);
+}
+
+.tip-total-p{
+    @include maxWidth(40%);
+   }
+
+.tip-total-input, .tip-amount-input{
+    border: none;
+    color: $StrongCyan;
+    @include background-color(transparent);
+    @include fontSize(45px);
+    text-align: center;
+     @include width(100%);
+    @include maxWidth(210px); 
+    @include fontWeight(bolder);
+    font-family: 'Space Mono', monospace;    
+}
+
+ 
+.tip-total-input{
+    position: absolute;
+    top: 85px;    
+    padding-top: 4px;
+}
+
+
+span{
+    color: $DarkGrayishCyan2;
+    @include fontWeight(bolder);
+    @include fontSize(13px);
+}
+
+.result-container button{
+    @include padding(10px);
+    border: none;
+    border-radius: 4px;
+    @include maxWidth(80%);
+    @include background-color(rgba(208, 217, 215, 0.29));
+    @include fontWeight(1000);
+    @include fontSize(20px);
+    position: absolute;
+    bottom: 35px;
+    @include width(100%);
+    left: 40px;
+    color: $VeryDarkCyan;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+}
+
+.result-container button::before{
+    content: "";
+    background: rgba(13, 105, 110, 0.678);
+    position:absolute;
+    top: 0;
+    left: 0;
+    @include width(100%);
+    @include height(100%);
+    border-radius: 5px;
+}
+
+

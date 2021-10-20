@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+
+
+</head>
+<body>
+  <img src="./images/logo.svg" alt="splitter" class="splitter-img">
+ <main class="main-container">
+   <section class="section-data"> 
+    <div class="bill">
+      <p>Bill</p>
+      <input type="text" class="bill-input" id="bill-input" placeholder="">
+    </div>
+    <div class="tip-offer">
+      <p>Select Tip %</p>
+      <div class="tip-offer-1">
+        <button class="btn-offer">5%</button>
+        <button class="btn-offer">10%</button>
+        <button class="btn-offer">15%</button>
+      </div>
+      <div class="tip-offer-2">
+        <button class="btn-offer">25%</button>
+        <button class="btn-offer">50%</button>
+        <input type="text" class="input-custom" > 
+      </div>
+    </div>      
+      <div class="people-container">
+        <p>Number of People</p>
+        <input type="text" class="bill-number-people" id="bill-number-people">
+      </div>
+    
+   </section>
+   <section class="section-result"> 
+     <div class="result-container">
+       <div class="result-container__inputs">
+         <div class="result-container__inputs-p">
+          <p class="tip-amount-p" >Tip Amount  <span>/ person</span></p>
+          <p class="tip-total-p">Total  <span>/ person</span></p>
+         </div>
+         <div class="result-container__inputs-text"> 
+          <input type="text" disabled class="tip-amount-input" id="tip-amount-input" placeholder="">
+          <input type="text" disabled class="tip-total-input" id="tip-total-input" placeholder="" >
+         </div>              
+       </div>      
+      <button type="button"> RESET </button>
+     </div>    
+  </section>
+ </main>
+</body>
+</html>
