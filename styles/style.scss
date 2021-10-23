@@ -121,6 +121,10 @@ body{
  @include fontWeight(510);
 }
 
+.bill p, .people-container p{
+    margin-bottom: 6px;
+}
+
 .bill-input, .bill-number-people{
     @include width(100%);
     @include height(45px);
@@ -131,7 +135,7 @@ body{
     @include fontSize(25px);
     @include fontWeight(bold);
     @include padding(1rem 10px);
-    color: #9ebbbd;
+    color: #5a8381;
     background-repeat: no-repeat;
     outline: none;
     background-position: 5%;
@@ -140,9 +144,15 @@ body{
 }
 
 .bill-input{
-    background-image: url('/Tip-calculator-app/images/icon-dollar.svg');
-       
+    background-image: url('/Tip-calculator-app/images/icon-dollar.svg');   
 }
+
+.bill-input:hover, .bill-number-people:hover{
+    border-width: 2px;
+    border-style: solid;
+    border-color: $StrongCyan;
+}
+
 
 .bill-number-people{
     background-image: url('/Tip-calculator-app/images/icon-person.svg');   
@@ -158,7 +168,7 @@ body{
     @include width(100%);
 }    
 
-.tip-offer-1 button, .tip-offer-2 button, .input-custom {
+.tip-offer-1 button, .tip-offer-2 button, #custom-input {
     @include padding(10px 1rem);
     @include fontSize(23px);
     @include fontWeight(750);    
@@ -188,14 +198,47 @@ body{
     cursor: pointer;
 }
 
-.input-custom{
+.btn-offer:hover{
+    @include background-color(hsla(173,61%,77%,1));
+    color: $VeryDarkCyan;
+}
+
+.btn-offer:focus{
+    @include background-color(hsla(173,61%,77%,1));
+    color: $VeryDarkCyan;
+}
+
+#custom-input{
     @include background-color(#eaf5f5);
     color: rgb(90, 131, 129);    
     cursor: pointer;
     text-align: right;
+    border: none;
+    outline: none;
 }
 
-/* Seccion que muestra los resultados */
+#custom-input:hover{
+    border-width: 2px;
+    border-style: solid;
+    border-color: $StrongCyan;
+}
+
+#custom-input:focus{
+    border-width: 2px;
+    border-style: solid;
+    border-color: $StrongCyan;
+}
+
+.titles{
+    @include displayFlex;
+    @include justifyContent(space-between);
+}
+
+.custom-errormsj{
+    color: hsla(15, 72%, 76%, 1);
+}
+
+/* Seccion that shows the results */
 .section-result{
     flex-basis: 50%;
     @include displayFlex;
@@ -280,7 +323,7 @@ span{
     border: none;
     border-radius: 4px;
     @include maxWidth(80%);
-    @include background-color(rgba(208, 217, 215, 0.29));
+    @include background-color(hsla(183, 80%, 24%, 1));
     @include fontWeight(1000);
     @include fontSize(20px);
     position: absolute;
@@ -292,15 +335,98 @@ span{
     font-family: 'Space Mono', monospace;
 }
 
-.result-container button::before{
-    content: "";
-    background: rgba(13, 105, 110, 0.678);
-    position:absolute;
-    top: 0;
-    left: 0;
-    @include width(100%);
-    @include height(100%);
-    border-radius: 5px;
+.result-container button:hover{
+    @include background-color(hsla(173,61%,77%,1));
+    color: $VeryDarkCyan;
 }
 
+.result-container button:focus{
+    @include background-color(hsla(173,61%,77%,1));
+    color: $VeryDarkCyan;
+}
 
+/* quitar las flechas de los input number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+
+
+@media screen and (max-width:760px) {
+
+    .splitter-img{
+        margin-top: 8rem;
+    }
+    .main-container{
+        @include maxHeight(100%);
+        @include flexDirection(column);
+        min-width: 360px;
+    }
+
+    .tip-offer {
+        margin-top: 1rem;
+        @include flexDirection(column)
+    }
+
+    .tip-container{
+        @include displayFlex;
+        @include justifyContent(center)
+    }    
+
+    .tip-offer-1, .tip-offer-2{
+        @include flexDirection(column)
+    }
+
+    .tip-offer-1{
+        padding-right: 1rem;
+    }
+
+    .tip-offer-2{
+        padding-left: 1rem;
+        @include height(100%);
+        min-height: 231px;
+        padding-top: 0;
+    }
+    #custom-input{
+        text-align: center;
+    }
+    .tip-offer-1 button, .tip-offer-2 button, #custom-input{
+        @include width(140px);
+    }
+
+    .custom-errormsj{
+        @include width(100%);
+        max-width: 130px;
+    }
+
+    .section-result{
+        flex-basis: 0;
+        @include width(100%);
+        min-width: 383px;
+        @include height(100%);
+        min-height: 350px;
+    }
+
+    .result-container{
+        @include padding(1rem);
+    }
+
+    .tip-total-input, .tip-amount-input{
+        @include fontSize(40px);        
+
+    }
+
+    .tip-amount-p{
+        @include width(100%);
+        @include maxWidth(100px);
+    }
+
+    .tip-total-p{
+        @include width(100%);
+        @include maxWidth(66px);
+    }
+}

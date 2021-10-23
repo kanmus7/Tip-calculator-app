@@ -67,6 +67,10 @@ body {
   font-weight: 510;
 }
 
+.bill p, .people-container p {
+  margin-bottom: 6px;
+}
+
 .bill-input, .bill-number-people {
   width: 100%;
   height: 45px;
@@ -77,7 +81,7 @@ body {
   font-size: 25px;
   font-weight: bold;
   padding: 1rem 10px;
-  color: #9ebbbd;
+  color: #5a8381;
   background-repeat: no-repeat;
   outline: none;
   background-position: 5%;
@@ -87,6 +91,12 @@ body {
 
 .bill-input {
   background-image: url("/Tip-calculator-app/images/icon-dollar.svg");
+}
+
+.bill-input:hover, .bill-number-people:hover {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #26c0ab;
 }
 
 .bill-number-people {
@@ -108,7 +118,7 @@ body {
   width: 100%;
 }
 
-.tip-offer-1 button, .tip-offer-2 button, .input-custom {
+.tip-offer-1 button, .tip-offer-2 button, #custom-input {
   padding: 10px 1rem;
   font-size: 23px;
   font-weight: 750;
@@ -142,14 +152,51 @@ body {
   cursor: pointer;
 }
 
-.input-custom {
+.btn-offer:hover {
+  background-color: #a1e8e0;
+  color: #00494d;
+}
+
+.btn-offer:focus {
+  background-color: #a1e8e0;
+  color: #00494d;
+}
+
+#custom-input {
   background-color: #eaf5f5;
   color: #5a8381;
   cursor: pointer;
   text-align: right;
+  border: none;
+  outline: none;
 }
 
-/* Seccion que muestra los resultados */
+#custom-input:hover {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #26c0ab;
+}
+
+#custom-input:focus {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #26c0ab;
+}
+
+.titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.custom-errormsj {
+  color: #eeac96;
+}
+
+/* Seccion that shows the results */
 .section-result {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
@@ -258,7 +305,7 @@ span {
   border: none;
   border-radius: 4px;
   max-width: 80%;
-  background-color: rgba(208, 217, 215, 0.29);
+  background-color: #0c696e;
   font-weight: 1000;
   font-size: 20px;
   position: absolute;
@@ -270,14 +317,100 @@ span {
   font-family: 'Space Mono', monospace;
 }
 
-.result-container button::before {
-  content: "";
-  background: rgba(13, 105, 110, 0.678);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
+.result-container button:hover {
+  background-color: #a1e8e0;
+  color: #00494d;
+}
+
+.result-container button:focus {
+  background-color: #a1e8e0;
+  color: #00494d;
+}
+
+/* quitar las flechas de los input number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media screen and (max-width: 760px) {
+  .splitter-img {
+    margin-top: 8rem;
+  }
+  .main-container {
+    max-height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-width: 360px;
+  }
+  .tip-offer {
+    margin-top: 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .tip-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .tip-offer-1, .tip-offer-2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .tip-offer-1 {
+    padding-right: 1rem;
+  }
+  .tip-offer-2 {
+    padding-left: 1rem;
+    height: 100%;
+    min-height: 231px;
+    padding-top: 0;
+  }
+  #custom-input {
+    text-align: center;
+  }
+  .tip-offer-1 button, .tip-offer-2 button, #custom-input {
+    width: 140px;
+  }
+  .custom-errormsj {
+    width: 100%;
+    max-width: 130px;
+  }
+  .section-result {
+    -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+    width: 100%;
+    min-width: 383px;
+    height: 100%;
+    min-height: 350px;
+  }
+  .result-container {
+    padding: 1rem;
+  }
+  .tip-total-input, .tip-amount-input {
+    font-size: 40px;
+  }
+  .tip-amount-p {
+    width: 100%;
+    max-width: 100px;
+  }
+  .tip-total-p {
+    width: 100%;
+    max-width: 66px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
